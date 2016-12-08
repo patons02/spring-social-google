@@ -16,6 +16,7 @@
 package org.springframework.social.google.api;
 
 import org.springframework.social.ApiBinding;
+import org.springframework.social.google.api.admin.AdminOperations;
 import org.springframework.social.google.api.drive.DriveOperations;
 import org.springframework.social.google.api.impl.GoogleTemplate;
 import org.springframework.social.google.api.plus.PlusOperations;
@@ -77,6 +78,14 @@ public interface Google extends ApiBinding {
 	 * @return {@link CalendarOperations} for the authenticated user if authenticated
 	 */
 	CalendarOperations calendarOperations();
+
+	/**
+	 * Retrieves {@link AdminOperations}, used for interacting with Google Directory API.
+	 * Some methods require OAuth2 scope. This is fully defined in {@link AdminOperations}.
+	 *
+	 * @return {@link AdminOperations} for the authenticated user if authenticated
+	 */
+	AdminOperations adminOperations();
 
 	/**
 	 * Returns the access token, allowing interoperability with other libraries

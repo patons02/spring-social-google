@@ -29,6 +29,8 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.ResourceHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.social.google.api.Google;
+import org.springframework.social.google.api.admin.AdminOperations;
+import org.springframework.social.google.api.admin.impl.AdminTemplate;
 import org.springframework.social.google.api.drive.DriveOperations;
 import org.springframework.social.google.api.drive.impl.DriveTemplate;
 import org.springframework.social.google.api.plus.PlusOperations;
@@ -62,6 +64,7 @@ public class GoogleTemplate extends AbstractOAuth2ApiBinding implements Google {
 	private TaskOperations taskOperations;
 	private DriveOperations driveOperations;
 	private CalendarOperations calendarOperations;
+	private AdminOperations adminOperations;
 
 	/**
 	 * Creates a new instance of GoogleTemplate.
@@ -87,6 +90,7 @@ public class GoogleTemplate extends AbstractOAuth2ApiBinding implements Google {
 		taskOperations = new TaskTemplate(getRestTemplate(), isAuthorized());
 		driveOperations = new DriveTemplate(getRestTemplate(), isAuthorized());
 		calendarOperations = new CalendarTemplate(getRestTemplate(), isAuthorized());
+		adminOperations = new AdminTemplate(getRestTemplate(), isAuthorized());
 	}
 
 	@Override
@@ -134,6 +138,11 @@ public class GoogleTemplate extends AbstractOAuth2ApiBinding implements Google {
 	@Override
 	public CalendarOperations calendarOperations() {
 		return calendarOperations;
+	}
+
+	@Override
+	public AdminOperations adminOperations() {
+		return adminOperations;
 	}
 
 	@Override
