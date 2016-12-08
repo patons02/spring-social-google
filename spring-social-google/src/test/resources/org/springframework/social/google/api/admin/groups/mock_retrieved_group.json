@@ -1,0 +1,15 @@
+{
+  "kind": "admin#directory#group",
+  "id": "onn6d9kbhps6fc47m96auhtkdo",
+  "etag": "\"2831656302604000\"",
+  "email": "test@example.com",
+  "name": "Joe Bloggs",
+  "directMembersCount": 4,
+  "description": "A test group.",
+  "adminCreated": true,
+  "aliases": [
+    "test1@example.com"
+  ],
+  "nonEditableAliases": [
+  ]
+}

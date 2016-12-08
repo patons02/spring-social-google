@@ -21,7 +21,6 @@ public class AdminTemplate extends AbstractGoogleApiOperations implements AdminO
 
     @Override
     public GroupsOperations groupsOperations() {
-
         return groupsOperations;
     }
 }
