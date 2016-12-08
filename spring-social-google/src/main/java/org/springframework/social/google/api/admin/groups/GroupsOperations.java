@@ -25,4 +25,17 @@ public interface GroupsOperations {
      * @author Stuart Paton
      */
     Group getGroup(String groupKey);
+
+    /**
+     * Retrieves the {@link GroupsListing}.
+     * <p>
+     * This method requires OAuth2 scope from one of the following:
+     * <ul>
+     * <li>https://www.googleapis.com/auth/admin.directory.group.readonly</li>
+     * <li>https://www.googleapis.com/auth/admin.directory.group</li>
+     * </ul>
+     *
+     * @author Stuart Paton
+     */
+    GroupsListing listGroups();
 }

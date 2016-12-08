@@ -1,6 +1,7 @@
 package org.springframework.social.google.api.admin.groups.impl;
 
 import org.springframework.social.google.api.admin.groups.Group;
+import org.springframework.social.google.api.admin.groups.GroupsListing;
 import org.springframework.social.google.api.admin.groups.GroupsOperations;
 import org.springframework.social.google.api.impl.AbstractGoogleApiOperations;
 import org.springframework.util.Assert;
@@ -24,5 +25,10 @@ public class GroupsTemplate extends AbstractGoogleApiOperations implements Group
         Assert.notNull(groupKey, "GroupKey must not be null!");
         GroupsGetQueryBuilderImpl builder = new GroupsGetQueryBuilderImpl(GROUPS_BASE_URL + "{0}", groupKey);
         return restTemplate.getForObject(builder.buildUri(), Group.class);
+    }
+
+    @Override
+    public GroupsListing listGroups() {
+        return getEntity(GROUPS_BASE_URL, GroupsListing.class);
     }
 }
